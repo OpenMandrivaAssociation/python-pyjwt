@@ -11,7 +11,7 @@ Summary:        JSON Web Token implementation in Python
 Group:          Development/Python
 License:        MIT
 URL:            https://pypi.org/project/PyJWT
-Source0:        https://files.pythonhosted.org/packages/source/p/%{pypiname}/%{pypiname}-%{version}.tar.gz
+Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  pkgconfig(python)
