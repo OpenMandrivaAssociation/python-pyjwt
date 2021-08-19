@@ -5,16 +5,16 @@
 %bcond_with test
 
 Name:           python-%{pkg_name}
-Version:        2.0.1
-Release:        %mkrel 2
+Version:        2.1.0
+Release:        1
 Summary:        JSON Web Token implementation in Python
 Group:          Development/Python
 License:        MIT
 URL:            https://pypi.org/project/PyJWT
-Source0:        %{pypi_source}
+Source0:        https://files.pythonhosted.org/packages/source/p/%{pypiname}/%{pypiname}-%{version}.tar.gz
 BuildArch:      noarch
 
-BuildRequires:  python3-devel
+BuildRequires:  pkgconfig(python)
 BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(cryptography)
 %if %{with test}
@@ -26,15 +26,10 @@ BuildRequires:  python3dist(pytest-cov)
 BuildRequires:  python3dist(pytest-runner)
 %endif
 
-%description
-A Python implementation of RFC 7519.
-
-%package -n     python3-%{pkg_name}
-Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{pkg_name}}
 Requires:       python3dist(cryptography) >= 1.4
 
-%description -n python3-%{pkg_name}
+%description
 A Python implementation of RFC 7519.
 
 %prep
@@ -44,18 +39,18 @@ A Python implementation of RFC 7519.
 rm -rf *.egg-info
 
 %build
-%py3_build
+%py_build
 
 %install
-%py3_install
+%py_install
 
 %if %{with test}
 %check
 %{__python3} setup.py test
 %endif
 
-%files -n python3-%{pkg_name}
+%files
 %license LICENSE
 %doc README.rst
-%{python3_sitelib}/jwt
-%{python3_sitelib}/PyJWT-%{version}-py?.?.egg-info
+%{python_sitelib}/jwt
+%{python_sitelib}/PyJWT-%{version}-py?.?.egg-info
