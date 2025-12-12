@@ -6,7 +6,7 @@
 
 Name:           python-%{pkg_name}
 Version:        2.10.1
-Release:        1
+Release:        2
 Summary:        JSON Web Token implementation in Python
 Group:          Development/Python
 License:        MIT
